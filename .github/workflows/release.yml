@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Convential changelog action
         id: chnaglog
-        uses: TriPSs/conventional-chnaglog-action@v3.7.1
+        uses: TriPSs/conventional-changelog-action@v5
         
       # Runs a single command using the runners shell
       - name: Convential changelog action
