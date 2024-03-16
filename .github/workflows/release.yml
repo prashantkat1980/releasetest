@@ -26,11 +26,18 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: checkout repo
         uses: actions/checkout@v3
-
+      - name: Convential changelog action
+        id: chnaglog
+        uses: TriPSs/conventional-chnaglog-action@v3.7.1
+        
       # Runs a single command using the runners shell
       - name: Convential changelog action
         id: release
         uses: actions/create-release@v1
+        with:
+          tag_name: ${{steps.chnaglog.outputs.tag}}
+          release_name: ${{steps.chnaglog.outputs.tag}}
+          body: ${{steps.chnaglog.outputs.clean_changlog}}
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
